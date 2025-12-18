@@ -5,7 +5,7 @@ from datetime import datetime
 from typing import Tuple, List
 
 # ===== 設定 =====
-DATASET_ROOT = Path("/data/understand-experiment-202507/dataset")
+DATASET_ROOT = Path("data/dataset")
 OUTPUT_DIR = Path("outputs/timeseries")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -82,7 +82,7 @@ def main(input_csv: Path):
     with input_csv.open(encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for row in reader:
-            process_task(row["task_id"], row["tool"])
+            process_task(row["taskID"], row["tool_condition"])
 
 
 if __name__ == "__main__":
