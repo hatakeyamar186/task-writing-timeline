@@ -1,0 +1,5 @@
+{
+  "username": "taskA_uziabfbk1",
+  "text": "# ここにメソッド間の関係を記述してください。\n# 1行に1つの関係を記述します。\n# (例1) メソッド m1 から m2 に呼び出し関係がある場合: \n# m1 m2\n# (例2) たとえばメソッド m3 から m4 にデータが影響を与える場合: \n# m3 m4 データ名\n# なお、\"#\" ではじまる行はコメントとして無視されます。\n\nm7 m8\n\nm1 m8 autoSkipErrors\n\nm9 m1\n\nm10 m9 skipErrorsCheckBox\n\nm6 m8\n\nm2 m3\n\n",
+  "timestamp": "2025-07-16T05:41:15.938843242Z"
+}

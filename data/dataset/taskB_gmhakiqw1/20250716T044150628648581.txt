@@ -1,0 +1,5 @@
+{
+  "username": "taskB_gmhakiqw1",
+  "text": "# ここにメソッド間の関係を記述してください。\n# 1行に1つの関係を記述します。\n# (例1) メソッド m1 から m2 に呼び出し関係がある場合: \n# m1 m2\n# (例2) たとえばメソッド m3 から m4 にデータが影響を与える場合: \n# m3 m4 データ名\n# なお、\"#\" ではじまる行はコメントとして無視されます。\nsetMode getMode\nsetMode setMode\nJEditEmbeddedTextArea setMode\nmain setMode\n_save setMode\nsetMode propertiesChanded\nsetMode getTokenMarker\nsetMode resetCachedProperties\nsetMode NullPointerException\nsetMode equals\nsetMode getName\nsetMode setTokenMarker\nstartElement addMode\nmain addMode\nStandaloneTextArea addMode\naddMode add\n\ngetMode getMode\n",
+  "timestamp": "2025-07-16T04:41:50.628648581Z"
+}
