@@ -1,5 +1,6 @@
 import csv
 import json
+import re
 from pathlib import Path
 from datetime import datetime
 from typing import Tuple, List, Set
@@ -112,13 +113,31 @@ def load_snapshots(task_dir: Path) -> List[dict]:
     for txt_path in task_dir.glob("*.txt"):
         with txt_path.open(encoding="utf-8") as f:
             data = json.load(f)
-            data["parsed_time"] = datetime.fromisoformat(
-                data["timestamp"].replace("Z", "+00:00")
-            )
+            data["parsed_time"] = parse_timestamp(data["timestamp"])
             snapshots.append(data)
 
     # 時刻順に並べる
     return sorted(snapshots, key=lambda x: x["parsed_time"])
+
+
+# ===== 小数秒を6桁に切り捨てる関数 =====
+def parse_timestamp(ts: str) -> datetime:
+    """
+    ISO8601文字列を安全にdatetimeへ変換する
+    - ナノ秒（7桁以上）は6桁に切り捨て
+    - Z / +00:00 両対応
+    """
+    ts = ts.replace("Z", "+00:00")
+
+    m = re.match(r"(.*)\.(\d+)([+-]\d\d:\d\d)", ts)
+    if m:
+        base = m.group(1)
+        frac = m.group(2)[:6]   # ← 数字だけを6桁
+        tz = m.group(3)
+        ts = f"{base}.{frac}{tz}"
+
+    return datetime.fromisoformat(ts)
+
 
 
 # ===== タスク1件の処理 =====
@@ -129,6 +148,9 @@ def process_task(task_id: str, tool: str):
 
     task_type = "A" if task_id.startswith("taskA") else "B"
     snapshots = load_snapshots(task_dir)
+
+    #　仮に入れたprint
+    print(f"[DEBUG] {task_id}: snapshots={len(snapshots)}")
 
     out_path = OUTPUT_DIR / f"{task_id}.csv"
 
