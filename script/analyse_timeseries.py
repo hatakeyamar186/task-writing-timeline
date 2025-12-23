@@ -162,20 +162,21 @@ def process_task(task_id: str, tool: str):
             "task_type",
             "task_id",
             "tool",
-            "timestamp",
+            "time",
             "precision",
             "recall",
             "f1"
         ])
 
+
         # 各スナップショット = 1行
-        for snap in snapshots:
+        for i, snap in enumerate(snapshots, start=1):
             precision, recall, f1 = evaluate(snap["text"], task_type)
             writer.writerow([
                 task_type,
                 task_id,
                 tool,
-                snap["parsed_time"].isoformat(),
+                i,          # time = 1,2,3,...
                 precision,
                 recall,
                 f1
