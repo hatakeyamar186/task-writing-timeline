@@ -1,9 +1,9 @@
 task_type,task_id,tool,time,precision,recall,f1
-B,taskB_fq1lytz4r,with_tool,1,1.0,0.2727272727272727,0.42857142857142855
-B,taskB_fq1lytz4r,with_tool,2,1.0,0.2727272727272727,0.42857142857142855
-B,taskB_fq1lytz4r,with_tool,3,1.0,0.2727272727272727,0.42857142857142855
-B,taskB_fq1lytz4r,with_tool,4,1.0,0.36363636363636365,0.5333333333333333
-B,taskB_fq1lytz4r,with_tool,5,1.0,0.36363636363636365,0.5333333333333333
-B,taskB_fq1lytz4r,with_tool,6,1.0,0.36363636363636365,0.5333333333333333
-B,taskB_fq1lytz4r,with_tool,7,1.0,0.36363636363636365,0.5333333333333333
-B,taskB_fq1lytz4r,with_tool,8,1.0,0.36363636363636365,0.5333333333333333
+B,taskB_fq1lytz4r,with_tool,1,1.0,0.27,0.43
+B,taskB_fq1lytz4r,with_tool,2,1.0,0.27,0.43
+B,taskB_fq1lytz4r,with_tool,3,1.0,0.27,0.43
+B,taskB_fq1lytz4r,with_tool,4,1.0,0.36,0.53
+B,taskB_fq1lytz4r,with_tool,5,1.0,0.36,0.53
+B,taskB_fq1lytz4r,with_tool,6,1.0,0.36,0.53
+B,taskB_fq1lytz4r,with_tool,7,1.0,0.36,0.53
+B,taskB_fq1lytz4r,with_tool,8,1.0,0.36,0.53

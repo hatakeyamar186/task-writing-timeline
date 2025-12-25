@@ -5,6 +5,7 @@ import unicodedata
 from pathlib import Path
 from datetime import datetime
 from typing import Tuple, List, Set
+from decimal import Decimal, ROUND_HALF_UP
 
 # ===== 設定 =====
 DATASET_ROOT = Path("data/dataset")
@@ -174,6 +175,14 @@ def parse_timestamp(ts: str) -> datetime:
     return datetime.fromisoformat(ts)
 
 
+# ==== 小数点第２位以下を四捨五入 ====
+def round_half_up(x: float, ndigits: int = 2) -> float:
+    """
+    厳密な四捨五入（0.5は必ず切り上げ）
+    """
+    q = Decimal("1").scaleb(-ndigits)  # 例: ndigits=2 → Decimal("0.01")
+    return float(Decimal(str(x)).quantize(q, rounding=ROUND_HALF_UP))
+
 
 # ===== タスク1件の処理 =====
 def process_task(task_id: str, tool: str):
@@ -212,9 +221,9 @@ def process_task(task_id: str, tool: str):
                 task_id,
                 tool,
                 i,          # time = 1,2,3,...
-                precision,
-                recall,
-                f1
+                round_half_up(precision, 2),
+                round_half_up(recall, 2),
+                round_half_up(f1, 2)
             ])
 
 
