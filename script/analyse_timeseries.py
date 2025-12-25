@@ -1,6 +1,7 @@
 import csv
 import json
 import re
+import unicodedata
 from pathlib import Path
 from datetime import datetime
 from typing import Tuple, List, Set
@@ -12,80 +13,113 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 
 # ===== 正解定義 =====
-TASK_A_GOLD = {
-    ("m1", "m7"),
-    ("m2", "m3"),
-    ("m2", "m5"),
-    ("m6", "m7"),
-    ("m6", "m8"),
-    ("m8", "m7"),
-    ("m9", "m1"),
-    ("m10", "m9"),
-}
+TASK_A_GOLD_TEXT = """
+m1 m7
+m2 m3
+m2 m5
+m6 m7
+m6 m8
+m8 m7
+m9 m1
+m10 m9
+"""
 
-TASK_B_GOLD = {
-    ("m1", "m2"),
-    ("m1", "m4"),
-    ("m5", "m5"),
-    ("m5", "m9"),
-    ("m5", "m10"),
-    ("m6", "m7"),
-    ("m7", "m6"),
-    ("m7", "m10"),
-    ("m8", "m5"),
-    ("m8", "m9"),
-    ("m9", "m10"),
-}
-
+TASK_B_GOLD_TEXT = """
+m1 m2
+m1 m4
+m5 m5
+m5 m9
+m5 m10
+m6 m7
+m7 m6
+m7 m10
+m8 m5
+m8 m9
+m9 m10
+"""
 
 # ===== .textから回答を取り出す =====
-def parse_text_relations(text: str) -> Set[Tuple[str, str]]:
-    """
-    text に書かれた関係を {(src, dst), ...} の集合として返す
-    - 改行(\n)ごとに1関係
-    - '#' で始まる行は無視
-    - 各行の先頭2トークンのみ使用
-    """
+# def parse_text_relations(text: str) -> Set[Tuple[str, str]]:
+#     """
+#     text に書かれた関係を {(src, dst), ...} の集合として返す
+#     - 改行(\n)ごとに1関係
+#     - '#' で始まる行は無視
+#     - 各行の先頭2トークンのみ使用
+#     """
 
-    relations: Set[Tuple[str, str]] = set()
+#     relations: Set[Tuple[str, str]] = set()
 
-    # \n はすでに Python 文字列では改行として解釈されている
+#     # \n はすでに Python 文字列では改行として解釈されている
+#     for raw_line in text.splitlines():
+#         line = raw_line.strip()
+
+#         # コメント・空行を無視
+#         if not line or line.startswith("#"):
+#             continue
+
+#         # 空白で分割（連続スペースもOK）
+#         parts = line.split()
+
+#         # 1行につき1関係 → 先頭2トークンが揃ったときだけ採用
+#         if len(parts) < 2:
+#             continue
+
+#         src = parts[0]
+#         dst = parts[1]
+
+#         relations.add((src, dst))
+
+#     return relations
+
+
+def canon_line(line: str) -> str:
+    if not line:
+        return ""
+
+    txt = unicodedata.normalize("NFKC", line).lower().strip()
+    toks = re.findall(r"\bm\d+\b", txt)
+
+    if len(toks) < 2:
+        return ""
+
+    return f"{toks[0]} {toks[1]}"
+
+
+
+def answer_set(text: str) -> Set[str]:
+    result: Set[str] = set()
+
     for raw_line in text.splitlines():
         line = raw_line.strip()
 
-        # コメント・空行を無視
+        # ★ コメント行を無視
         if not line or line.startswith("#"):
             continue
 
-        # 空白で分割（連続スペースもOK）
-        parts = line.split()
+        key = canon_line(line)
+        if key:
+            result.add(key)
 
-        # 1行につき1関係 → 先頭2トークンが揃ったときだけ採用
-        if len(parts) < 2:
-            continue
-
-        src = parts[0]
-        dst = parts[1]
-
-        relations.add((src, dst))
-
-    return relations
+    return result
 
 
-# ===== precition / recall/ F1スコア の計算 =====
-def compute_scores(
-    predicted: Set[Tuple[str, str]],
-    gold: Set[Tuple[str, str]]
+
+def compute_scores_js_compatible(
+    gold_text: str,
+    pred_text: str
 ):
-    tp = len(predicted & gold)
-    fp = len(predicted - gold)
-    fn = len(gold - predicted)
+    G = answer_set(gold_text)
+    P = answer_set(pred_text)
 
-    precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
-    recall = tp / (tp + fn) if (tp + fn) > 0 else 0.0
+    tp = len(P & G)
+    fp = len(P - G)
+    fn = len(G - P)
+
+    precision = tp / (tp + fp) if (tp + fp) else 0.0
+    recall = tp / (tp + fn) if (tp + fn) else 0.0
     f1 = (
         2 * precision * recall / (precision + recall)
-        if (precision + recall) > 0
+        if (precision + recall)
         else 0.0
     )
 
@@ -94,16 +128,17 @@ def compute_scores(
 
 # ===== taskA / taskB を判定して評価する =====
 def evaluate(text: str, task_type: str):
-    predicted = parse_text_relations(text)
-
     if task_type == "A":
-        gold = TASK_A_GOLD
+        gold_text = TASK_A_GOLD_TEXT
     elif task_type == "B":
-        gold = TASK_B_GOLD
+        gold_text = TASK_B_GOLD_TEXT
     else:
         raise ValueError(f"Unknown task type: {task_type}")
 
-    return compute_scores(predicted, gold)
+    return compute_scores_js_compatible(
+        gold_text=gold_text,
+        pred_text=text
+    )
 
 
 # ===== JSONスナップショット読み込み =====
