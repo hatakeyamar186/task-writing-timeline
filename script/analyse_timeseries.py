@@ -4,7 +4,7 @@ import re
 import unicodedata
 from pathlib import Path
 from datetime import datetime
-from typing import Tuple, List, Set
+from typing import List, Set
 from decimal import Decimal, ROUND_HALF_UP
 
 # ===== 設定 =====
@@ -38,39 +38,6 @@ m8 m5
 m8 m9
 m9 m10
 """
-
-# ===== .textから回答を取り出す =====
-# def parse_text_relations(text: str) -> Set[Tuple[str, str]]:
-#     """
-#     text に書かれた関係を {(src, dst), ...} の集合として返す
-#     - 改行(\n)ごとに1関係
-#     - '#' で始まる行は無視
-#     - 各行の先頭2トークンのみ使用
-#     """
-
-#     relations: Set[Tuple[str, str]] = set()
-
-#     # \n はすでに Python 文字列では改行として解釈されている
-#     for raw_line in text.splitlines():
-#         line = raw_line.strip()
-
-#         # コメント・空行を無視
-#         if not line or line.startswith("#"):
-#             continue
-
-#         # 空白で分割（連続スペースもOK）
-#         parts = line.split()
-
-#         # 1行につき1関係 → 先頭2トークンが揃ったときだけ採用
-#         if len(parts) < 2:
-#             continue
-
-#         src = parts[0]
-#         dst = parts[1]
-
-#         relations.add((src, dst))
-
-#     return relations
 
 
 def canon_line(line: str) -> str:
