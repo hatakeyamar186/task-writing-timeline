@@ -1,5 +1,3 @@
-print("=== summarize_results.py is running ===")
-
 import csv
 from pathlib import Path
 

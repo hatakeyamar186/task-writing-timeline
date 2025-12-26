@@ -1,0 +1,107 @@
+import csv
+from pathlib import Path
+from decimal import Decimal, ROUND_HALF_UP
+
+# ===== スクリプトとプロジェクトの位置 =====
+SCRIPT_DIR = Path(__file__).resolve().parent
+BASE_DIR = SCRIPT_DIR.parent
+
+# ===== 入力ディレクトリ =====
+INPUT_DIR = BASE_DIR / "data" / "input"
+TASKA_CSV = INPUT_DIR / "taskA_with_tool.csv"
+TASKB_CSV = INPUT_DIR / "taskB_with_tool.csv"
+TASKS_CSV = INPUT_DIR / "Participants.csv"
+
+# ===== 出力 =====
+OUTPUT_CSV = BASE_DIR / "outputs" / "analysis_usability.csv"
+
+# ===== 列名（スプレッドシート由来）=====
+TASK_ID_COL = "エディタ領域の上側に表示されている「Task ID」欄の文字列をここにコピーして貼り付けてください。"
+F1_FUNCTION_COL = "F1スコア"
+F1_GRAPH_COL = "エディタF1スコア"
+
+
+def load_f1_map(csv_path: Path):
+    """
+    taskID -> {graph: f1, function: f1}
+    """
+    result = {}
+
+    with csv_path.open(encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            task_id = row[TASK_ID_COL]
+
+            graph_f1 = float(row[F1_GRAPH_COL]) if row[F1_GRAPH_COL] else None
+            function_f1 = float(row[F1_FUNCTION_COL]) if row[F1_FUNCTION_COL] else None
+
+            result[task_id] = {
+                "graph": graph_f1,
+                "function": function_f1,
+            }
+
+    return result
+
+def round_half_up(x, ndigits=2):
+    """
+    小数点第 ndigits 位まで四捨五入（0.5は必ず切り上げ）
+    """
+    if x is None:
+        return None
+    q = Decimal("1").scaleb(-ndigits)  # 例: ndigits=2 → Decimal("0.01")
+    return float(Decimal(str(x)).quantize(q, rounding=ROUND_HALF_UP))
+
+
+def main():
+    # --- F1 データをロード ---
+    taskA_f1 = load_f1_map(TASKA_CSV)
+    taskB_f1 = load_f1_map(TASKB_CSV)
+
+    rows = []
+
+    # --- アンケート（ID ≤ 28 のみ）を基準に統合 ---
+    with TASKS_CSV.open(encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            participant_id = int(row["ID"])
+            if participant_id > 28:
+                continue  # ツール未使用者は除外
+
+            taskA_id = row["taskA"]
+            taskB_id = row["taskB"]
+            usability = int(row["Usability"])
+
+            rows.append({
+                "participant_id": participant_id,
+                "taskA_ID": taskA_id,
+                "taskB_ID": taskB_id,
+                "usability_score": usability,
+                "taskA_f1_graph": round_half_up(taskA_f1.get(taskA_id, {}).get("graph")),
+                "taskA_f1_function": round_half_up(taskA_f1.get(taskA_id, {}).get("function")),
+                "taskB_f1_graph": round_half_up(taskB_f1.get(taskB_id, {}).get("graph")),
+                "taskB_f1_function": round_half_up(taskB_f1.get(taskB_id, {}).get("function")),
+            })
+
+    OUTPUT_CSV.parent.mkdir(parents=True, exist_ok=True)
+
+    # --- CSV 出力 ---
+    with OUTPUT_CSV.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(
+            f,
+            fieldnames=[
+                "participant_id",
+                "taskA_ID",
+                "taskB_ID",
+                "usability_score",
+                "taskA_f1_graph",
+                "taskA_f1_function",
+                "taskB_f1_graph",
+                "taskB_f1_function",
+            ],
+        )
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+if __name__ == "__main__":
+    main()
