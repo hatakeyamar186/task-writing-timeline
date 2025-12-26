@@ -1,0 +1,559 @@
+タイムスタンプ,メールアドレス,氏名,エディタ領域の上側に表示されている「Task ID」欄の文字列をここにコピーして貼り付けてください。,エディタ領域に書かれている内容をここにコピーして貼り付けてください。,この分析から、対象の機能に関係していると考えられるメソッドの番号をすべて選んでください。,タスクは難しかったですか？,分析結果に関する備考、コメントなどがもしあれば記載してください。,正規化正解,正規化回答,再現率（Recall）,精度（Precision）,F1スコア,エディタ正答,エディタF1スコア,エディタRecall,エディタPrecision,列 1
+2025/07/16 14:40:18,b1022106@fun.ac.jp,坂本真愛,taskB_00p7058bk,"
+m9 m1 
+
+m9 m2 
+
+m6 m1
+m6 m2
+","m1, m2",1,,"m5, m6, m7, m8, m9, m10","m1, m2",0,0,0,"m1 m2
+m1 m4
+m5 m5
+m5 m9
+m5 m10
+m6 m7
+m7 m6
+m7 m10
+m8 m5
+m8 m9
+m9 m10",0,0,0,ツールあり
+2025/07/16 14:40:15,b1022002@fun.ac.jp,青山大真,taskB_1fkwy8yc9,"
+m2 m1
+m6 m5
+m8 m9","m1, m2, m5, m6, m8, m9",1,,"m5, m6, m7, m8, m9, m10","m1, m2, m5, m6, m8, m9",0.6666666667,0.6666666667,0.6666666667,"m1 m2
+m1 m4
+m5 m5
+m5 m9
+m5 m10
+m6 m7
+m7 m6
+m7 m10
+m8 m5
+m8 m9
+m9 m10",0.1428571429,0.09090909091,0.3333333333,ツールあり
+2025/07/16 14:39:44,b1022249@fun.ac.jp,後藤 瞭介,taskB_1l5li1a8x,"m1 m4
+m4 m2
+m5 m10
+m9 m10","m5, m9, m10",3,,"m5, m6, m7, m8, m9, m10","m5, m9, m10",0.5,1,0.6666666667,"m1 m2
+m1 m4
+m5 m5
+m5 m9
+m5 m10
+m6 m7
+m7 m6
+m7 m10
+m8 m5
+m8 m9
+m9 m10",0.4,0.2727272727,0.75,ツールあり
+2025/07/16 14:35:37,b1022086@fun.ac.jp,木村安寿,taskB_4uyhuqpxd,"
+m1 m2
+m1 m4
+m5 m10
+m8 m9
+","m1, m2, m4, m5, m8, m9, m10",2,,"m5, m6, m7, m8, m9, m10","m1, m2, m4, m5, m8, m9, m10",0.6666666667,0.5714285714,0.6153846154,"m1 m2
+m1 m4
+m5 m5
+m5 m9
+m5 m10
+m6 m7
+m7 m6
+m7 m10
+m8 m5
+m8 m9
+m9 m10",0.5333333333,0.3636363636,1,ツールあり
+2025/07/16 14:02:50,b1022020@fun.ac.jp,伊澤叡遵,taskB_5jrd29snd,"m1 m2
+m2 m9
+m5 m10
+m8 m6 ","m5, m6, m8, m10",2,,"m5, m6, m7, m8, m9, m10","m5, m6, m8, m10",0.6666666667,1,0.8,"m1 m2
+m1 m4
+m5 m5
+m5 m9
+m5 m10
+m6 m7
+m7 m6
+m7 m10
+m8 m5
+m8 m9
+m9 m10",0.2666666667,0.1818181818,0.5,ツールあり
+2025/07/16 14:03:15,b1022060@fun.ac.jp,小原叶夢,taskB_7xxxro6uz,"
+m1->m2
+m1->m4
+m5->m10
+m9->m10
+m8->m9
+","m5, m8, m9, m10",2,,"m5, m6, m7, m8, m9, m10","m5, m8, m9, m10",0.6666666667,1,0.8,"m1 m2
+m1 m4
+m5 m5
+m5 m9
+m5 m10
+m6 m7
+m7 m6
+m7 m10
+m8 m5
+m8 m9
+m9 m10",0.625,0.4545454545,1,ツールあり
+2025/07/16 14:35:49,b1022038@fun.ac.jp,伊丸岡 朝陽,taskB_8vx6ou37b,"
+
+m1 m2
+m3
+m4
+m5 m10
+m8 m6 init
+m7
+m9
+
+","m5, m10",2,propertiesChangedのメソッドを検索する際、うまく絞ることが難しかった。,"m5, m6, m7, m8, m9, m10","m5, m10",0.3333333333,1,0.5,"m1 m2
+m1 m4
+m5 m5
+m5 m9
+m5 m10
+m6 m7
+m7 m6
+m7 m10
+m8 m5
+m8 m9
+m9 m10",0.2857142857,0.1818181818,0.6666666667,ツールあり
+2025/07/16 14:03:27,b1022237@fun.ac.jp,寸田和輝,taskB_98xa7p5se,"
+
+m1 m2
+
+m5 m10 
+
+m8 m9
+
+
+","m5, m10",2,,"m5, m6, m7, m8, m9, m10","m5, m10",0.3333333333,1,0.5,"m1 m2
+m1 m4
+m5 m5
+m5 m9
+m5 m10
+m6 m7
+m7 m6
+m7 m10
+m8 m5
+m8 m9
+m9 m10",0.4285714286,0.2727272727,1,ツールあり
+2025/07/16 14:03:16,b1022156@fun.ac.jp,千歳真咲,taskB_b562ofg9f,"m6 m4
+m1 m4
+m5 m10","m1, m4, m5, m6, m10",1,,"m5, m6, m7, m8, m9, m10","m1, m4, m5, m6, m10",0.5,0.6,0.5454545455,"m1 m2
+m1 m4
+m5 m5
+m5 m9
+m5 m10
+m6 m7
+m7 m6
+m7 m10
+m8 m5
+m8 m9
+m9 m10",0.2857142857,0.1818181818,0.6666666667,ツールあり
+2025/07/16 13:57:56,b1022063@fun.ac.jp,梶村拓斗,taskB_bh7rnbwpq,"
+m5 m10 実行
+m8 m9 実行
+m2 m9 実行
+#update full screen propsでgeneral optionsダイアログの値を読み取ってメニューバーの表示の変数などに設定すれば良い","m2, m5, m8, m9, m10",2,,"m5, m6, m7, m8, m9, m10","m2, m5, m8, m9, m10",0.6666666667,0.8,0.7272727273,"m1 m2
+m1 m4
+m5 m5
+m5 m9
+m5 m10
+m6 m7
+m7 m6
+m7 m10
+m8 m5
+m8 m9
+m9 m10",0.2857142857,0.1818181818,0.6666666667,ツールあり
+2025/07/16 14:03:06,b1022077@fun.ac.jp,河野祐満,taskB_fi6on6b9b,"
+m1 m2
+m7 m6
+m9 m10","m5, m10",4,,"m5, m6, m7, m8, m9, m10","m5, m10",0.3333333333,1,0.5,"m1 m2
+m1 m4
+m5 m5
+m5 m9
+m5 m10
+m6 m7
+m7 m6
+m7 m10
+m8 m5
+m8 m9
+m9 m10",0.4285714286,0.2727272727,1,ツールあり
+2025/07/16 14:37:42,b1019060@fun.ac.jp,藤田珠海,taskB_fq1lytz4r,"m1 m2
+m1 m4
+m8 m9
+m9 m10","m8, m9, m10",2,,"m5, m6, m7, m8, m9, m10","m8, m9, m10",0.5,1,0.6666666667,"m1 m2
+m1 m4
+m5 m5
+m5 m9
+m5 m10
+m6 m7
+m7 m6
+m7 m10
+m8 m5
+m8 m9
+m9 m10",0.5333333333,0.3636363636,1,ツールあり
+2025/07/16 14:40:49,b1022097@fun.ac.jp,小坂高義,taskB_gcq69qi8s,"m1 m2
+m1 m4
+m8 m9
+m9 m10","m1, m2, m4, m8, m9, m10",1,,"m5, m6, m7, m8, m9, m10","m1, m2, m4, m8, m9, m10",0.5,0.5,0.5,"m1 m2
+m1 m4
+m5 m5
+m5 m9
+m5 m10
+m6 m7
+m7 m6
+m7 m10
+m8 m5
+m8 m9
+m9 m10",0.5333333333,0.3636363636,1,ツールあり
+2025/07/16 14:04:34,b1022252@fun.ac.jp,宮原良太,taskB_gmhakiqw1,"
+setMode getMode
+setMode setMode
+
+
+setMode setMode
+setMode setMode
+JEditEmbeddedTextArea setMode
+main setMode
+_save setMode
+
+setMode propertiesChanded
+setMode getTokenMarker
+setMode resetCachedProperties
+setMode NullPointerException
+setMode equals
+setMode getName
+setMode setTokenMarker
+
+
+startElement addMode
+main addMode
+StandaloneTextArea addMode
+
+addMode add
+
+
+getMode getMode
+startElement getMode
+getTokenMarker getMode
+getIndentRules getMode
+JEditEmbeddedTextArea getMode
+isElectricKey getMode
+endElement getMode
+
+getMode equlas
+getMode get
+getMode size
+getMode getName
+
+
+toggleFullScreen getGraphicsCOnfigurartion
+toggleFullScreen getDevice
+toggleFullScreen dispose
+toggleFullScreen getBooleanProperty
+toggleFullScreen getJMenuBar
+toggleFullScreen setJMenuBar
+toggleFullScreen updateFullScreenProps
+toggleFullScreen getBounds
+toggleFullScreen setUndecorated
+toggleFullScreen getDeafaultCOnfiguration
+toggleFullScreen getBounds
+toggleFullScreen setBounds
+toggleFullScreen setVisible
+toggleFullScreen toFront
+toggleFullScreen getTextArea
+toggleFullScreen requestFocus
+
+
+_init _init
+
+_init setEnabled
+_init setBorder
+_init add
+_init addComponent
+_init addComponent
+_init addComponent
+_init EmptyBorder
+_init JLabel
+_init loadIcon
+_init fromString
+_init fromString
+_init getBooleanProparty
+_init getProparty
+_init BorderLeyout
+_init add
+_init GridLeyout
+_init addActionListener
+_init isSelected
+_init setSelected
+_init JButto
+_init JCheckBox
+_init JComboBox
+_init addItem
+_init setSelectedItem
+_init JLabel
+_init JPanel
+_init JTextField
+_init TitledBorder
+_init setTitleJustification
+_init setEditable
+
+
+_save _save
+_save setProperty
+_save setBooleanProperty
+_save getName
+_save toString
+_save isSelected
+_save getSelectedItem
+_save getIcon
+_save getText
+
+
+newView View
+View BufferSet
+View initContinu","m8, m9, m10",2,,"m5, m6, m7, m8, m9, m10","m8, m9, m10",0.5,1,0.6666666667,"m1 m2
+m1 m4
+m5 m5
+m5 m9
+m5 m10
+m6 m7
+m7 m6
+m7 m10
+m8 m5
+m8 m9
+m9 m10",0,0,0,ツールあり
+2025/07/16 14:41:13,b1022127@fun.ac.jp,清水蒼太,taskB_k94n3s73t,"
+m1 m2
+m1 m4
+m5 m10
+m8 m9
+m9 m10
+","m5, m8, m9, m10",2,,"m5, m6, m7, m8, m9, m10","m5, m8, m9, m10",0.6666666667,1,0.8,"m1 m2
+m1 m4
+m5 m5
+m5 m9
+m5 m10
+m6 m7
+m7 m6
+m7 m10
+m8 m5
+m8 m9
+m9 m10",0.625,0.4545454545,1,ツールあり
+2025/07/16 13:58:51,b1021059@fun.ac.jp,名嘉奏汰郎,taskB_kj35tnlxt,"m1 m4
+m8 m9
+m9 m10
+m5 m10","m5, m10",1,,"m5, m6, m7, m8, m9, m10","m5, m10",0.3333333333,1,0.5,"m1 m2
+m1 m4
+m5 m5
+m5 m9
+m5 m10
+m6 m7
+m7 m6
+m7 m10
+m8 m5
+m8 m9
+m9 m10",0.5333333333,0.3636363636,1,ツールあり
+2025/07/16 14:04:31,b1022105@fun.ac.jp,坂本光太郎,taskB_lggv5wcs0,"
+m1 m2
+m1 m3
+m7 m2
+m5 m10
+m4 m1
+
+","m5, m10",1,,"m5, m6, m7, m8, m9, m10","m5, m10",0.3333333333,1,0.5,"m1 m2
+m1 m4
+m5 m5
+m5 m9
+m5 m10
+m6 m7
+m7 m6
+m7 m10
+m8 m5
+m8 m9
+m9 m10",0.25,0.1818181818,0.4,ツールあり
+2025/07/16 14:24:09,b1022024@fun.ac.jp,井田和樹,taskB_mf8e9fi8c,"
+m1 m2
+m1 m4 mode
+m5 m10
+m8 m9
+m9 m10","m5, m8, m9, m10",2,,"m5, m6, m7, m8, m9, m10","m5, m8, m9, m10",0.6666666667,1,0.8,"m1 m2
+m1 m4
+m5 m5
+m5 m9
+m5 m10
+m6 m7
+m7 m6
+m7 m10
+m8 m5
+m8 m9
+m9 m10",0.625,0.4545454545,1,ツールあり
+2025/07/16 14:04:21,b1022092@fun.ac.jp,小池宏幸,taskB_nut1d9cip,"
+m1 m4
+","m1, m2, m4",1,,"m5, m6, m7, m8, m9, m10","m1, m2, m4",0,0,0,"m1 m2
+m1 m4
+m5 m5
+m5 m9
+m5 m10
+m6 m7
+m7 m6
+m7 m10
+m8 m5
+m8 m9
+m9 m10",0.1666666667,0.09090909091,1,ツールあり
+2025/07/16 14:08:08,b1022035@fun.ac.jp,今井武央,taskB_oza8au5km,"m1 m4
+m1 m2
+
+m2 m1
+
+m2 m9
+
+m3 
+
+m5 m10","m1, m2, m4, m9, m10",2,,"m5, m6, m7, m8, m9, m10","m1, m2, m4, m9, m10",0.3333333333,0.4,0.3636363636,"m1 m2
+m1 m4
+m5 m5
+m5 m9
+m5 m10
+m6 m7
+m7 m6
+m7 m10
+m8 m5
+m8 m9
+m9 m10",0.375,0.2727272727,0.6,ツールあり
+2025/07/16 14:46:20,b1022134@fun.ac.jp,祐川雅治,taskB_s4o7tdqqs,"
+
+# 呼び出し
+m5 m10
+m8 m9
+m9 m10
+
+# データ授受
+m7 m10 fullScreenIncludesMenu
+m7 m10 fullScreenIncludesToolbar
+m7 m10 fullScreenIncludesStatus
+m7 m6  fullScreenIncludesMenu
+m7 m6  fullScreenIncludesToolbar
+m7 m6  fullScreenIncludesStatus","m5, m6, m7, m8, m9, m10",1,,"m5, m6, m7, m8, m9, m10","m5, m6, m7, m8, m9, m10",1,1,1,"m1 m2
+m1 m4
+m5 m5
+m5 m9
+m5 m10
+m6 m7
+m7 m6
+m7 m10
+m8 m5
+m8 m9
+m9 m10",0.625,0.4545454545,1,ツールあり
+2025/07/16 14:41:20,b1022076@fun.ac.jp,河西叶大,taskB_su4d3iybe,"
+m1 m4
+m1 m2
+m7 m2
+m8 m9
+m9 m10
+m5 m10","m1, m4, m6, m8, m9, m10",3,,"m5, m6, m7, m8, m9, m10","m1, m4, m6, m8, m9, m10",0.6666666667,0.6666666667,0.6666666667,"m1 m2
+m1 m4
+m5 m5
+m5 m9
+m5 m10
+m6 m7
+m7 m6
+m7 m10
+m8 m5
+m8 m9
+m9 m10",0.5882352941,0.4545454545,0.8333333333,ツールあり
+2025/07/10 14:25:52,b1022040@fun.ac.jp,岩田篤季,taskB_uj8xbw8f0,"
+m1 m2
+m1 m4
+m2 m9
+m5 m10
+","m1, m2, m4, m5, m9, m10",4,,"m5, m6, m7, m8, m9, m10","m1, m2, m4, m5, m9, m10",0.5,0.5,0.5,"m1 m2
+m1 m4
+m5 m5
+m5 m9
+m5 m10
+m6 m7
+m7 m6
+m7 m10
+m8 m5
+m8 m9
+m9 m10",0.4,0.2727272727,0.75,ツールあり
+2025/07/16 14:40:31,b1020255@fun.ac.jp,白井一樹,taskB_v9m39dk1e,"m1 m2
+m1 m4
+m5 m10
+m8 m9
+m9 m10","m5, m8, m9, m10",3,,"m5, m6, m7, m8, m9, m10","m5, m8, m9, m10",0.6666666667,1,0.8,"m1 m2
+m1 m4
+m5 m5
+m5 m9
+m5 m10
+m6 m7
+m7 m6
+m7 m10
+m8 m5
+m8 m9
+m9 m10",0.625,0.4545454545,1,ツールあり
+2025/07/16 14:40:22,b1022224@fun.ac.jp,山本泰真梨,taskB_x795jpdb3,"
+m1 m2 mode
+m2 m4 mode
+m5 m10 
+m8 m9
+m9 m10","m1, m2, m4, m5, m8, m9, m10",2,,"m5, m6, m7, m8, m9, m10","m1, m2, m4, m5, m8, m9, m10",0.6666666667,0.5714285714,0.6153846154,"m1 m2
+m1 m4
+m5 m5
+m5 m9
+m5 m10
+m6 m7
+m7 m6
+m7 m10
+m8 m5
+m8 m9
+m9 m10",0.5,0.3636363636,0.8,ツールあり
+2025/07/16 14:03:20,b1022112@fun.ac.jp,佐々木大聖,taskB_xovg9c4eu,"m1 m2
+m1 m4
+m5 m10
+m8 m9
+m9 m10","m1, m2, m4, m5, m8, m9, m10",2,,"m5, m6, m7, m8, m9, m10","m1, m2, m4, m5, m8, m9, m10",0.6666666667,0.5714285714,0.6153846154,"m1 m2
+m1 m4
+m5 m5
+m5 m9
+m5 m10
+m6 m7
+m7 m6
+m7 m10
+m8 m5
+m8 m9
+m9 m10",0.625,0.4545454545,1,ツールあり
+2025/07/10 15:00:06,b1022034@fun.ac.jp,稲垣 颯,taskB_zptb5ir3t,"
+m1 m2 Mode
+m1 m4
+
+m5 m10
+
+m8 m9
+m9 m10
+
+m2 m9","m1, m2, m5, m10",2,,"m5, m6, m7, m8, m9, m10","m1, m2, m5, m10",0.3333333333,0.5,0.4,"m1 m2
+m1 m4
+m5 m5
+m5 m9
+m5 m10
+m6 m7
+m7 m6
+m7 m10
+m8 m5
+m8 m9
+m9 m10",0.5882352941,0.4545454545,0.8333333333,ツールあり
+2025/07/16 14:40:28,b1022169@fun.ac.jp,中野大地,taskB_zv2jt4viw,"m1 m2
+m4 m1
+m6 m7
+m10 m5 fullScreenMode
+m10 m8
+m10 m9","m1, m2, m5, m8, m9, m10",1,,"m5, m6, m7, m8, m9, m10","m1, m2, m5, m8, m9, m10",0.6666666667,0.6666666667,0.6666666667,"m1 m2
+m1 m4
+m5 m5
+m5 m9
+m5 m10
+m6 m7
+m7 m6
+m7 m10
+m8 m5
+m8 m9
+m9 m10",0.2352941176,0.1818181818,0.3333333333,ツールあり
